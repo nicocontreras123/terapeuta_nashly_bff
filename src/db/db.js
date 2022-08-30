@@ -46,13 +46,13 @@ executeStatement = async (statement) => {
 }
 
 
-executeProcedureRegister = async(info) => {
+executeProcedureRegister = async(info, password) => {
     try{
         let pool = await sql.connect(configDb)
 
         let result = await pool.request()
             .input('Email', sql.NVarChar, info.email)
-        .input('Password', sql.NVarChar, info.password)
+        .input('Password', sql.NVarChar, password)
         .input('Rol', sql.Int, 1)
         .input('Name', sql.NVarChar, info.name)
         .input('Lastname', sql.NVarChar, info.lastname)

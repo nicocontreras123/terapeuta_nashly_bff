@@ -1,8 +1,8 @@
 const {executeStatement, executeProcedureRegister} = require("../../db/db");
 
-registerUser = (info) => {
+registerUser = (info, password) => {
     return new Promise((resolve, reject) => {
-        executeProcedureRegister(info)
+        executeProcedureRegister(info, password)
             .then(result => {
                 resolve(result)
             }).catch(err => {

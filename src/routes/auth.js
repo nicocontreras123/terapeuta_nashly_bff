@@ -26,6 +26,9 @@ router.post('/auth', async (req, res) => {
                         birthday: rows[0].birthday,
                         address: rows[0].address,
                         methodHealth: rows[0].methodHealth,
+                        phone: rows[0].phone,
+                        city: rows[0].city,
+                        idPerson: rows[0].idPerson,
                     }
                 })
             } else{
@@ -37,11 +40,11 @@ router.post('/auth', async (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-    const { email, data } = req.body;
+    const { email, data, password } = req.body;
     authModel.checkEmail(email).then(
         rows => {
             if(rows.length === 0){
-                authModel.registerUser(data).then(rows => {
+                authModel.registerUser(data, password).then(rows => {
                     res.status(200).send({message: 'Registrado', response: rows})
                 }).catch(err => {
                     res.status(400).send({message: err})
