@@ -10,7 +10,7 @@ const app = express();
 
 const whitelist = [
     'http://localhost:3000',
-    'https://main.dpmnef24xg4zi.amplifyapp.com'
+    'https://main.dpmnef24xg4zi.amplifyapp.com::3000'
 ]
 
 app.use(
