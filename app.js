@@ -9,7 +9,8 @@ const sessionRouter = require('./src/routes/sessions')
 const app = express();
 
 const whitelist = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://main.dpmnef24xg4zi.amplifyapp.com'
 ]
 
 app.use(
